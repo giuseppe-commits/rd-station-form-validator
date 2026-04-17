@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>RD Station Form Validator — Demo</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: #1e3a8a;
+      color: #fff;
+      margin: 0;
+      padding: 40px 20px;
+      min-height: 100vh;
+    }
+    .container {
+      max-width: 480px;
+      margin: 0 auto;
+      background: #1e40af;
+      padding: 32px 28px;
+      border-radius: 16px;
+      box-shadow: 0 8px 32px rgba(0,0,0,.2);
+    }
+    h1 {
+      font-size: 28px;
+      margin: 0 0 8px;
+    }
+    .subtitle {
+      opacity: .85;
+      margin: 0 0 28px;
+      font-size: 16px;
+    }
+    label {
+      display: block;
+      font-size: 14px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      margin-top: 18px;
+    }
+    input {
+      width: 100%;
+      padding: 12px 14px;
+      border: 2px solid transparent;
+      border-radius: 8px;
+      font-size: 16px;
+      background: #fff;
+      color: #111;
+      transition: border-color .2s, box-shadow .2s;
+    }
+    input:focus {
+      outline: none;
+      border-color: #60a5fa;
+    }
+    button {
+      width: 100%;
+      margin-top: 24px;
+      padding: 14px;
+      font-size: 17px;
+      font-weight: 700;
+      background: #f97316;
+      color: #fff;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    button:hover { background: #ea580c; }
+    .notes {
+      margin-top: 24px;
+      padding: 14px;
+      background: rgba(255,255,255,.08);
+      border-radius: 8px;
+      font-size: 13px;
+      line-height: 1.5;
+    }
+    .notes strong { color: #fde047; }
+    .footer {
+      text-align: center;
+      margin-top: 24px;
+      font-size: 13px;
+      opacity: .7;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Form Demo</h1>
+    <p class="subtitle">Teste a validação localmente antes de publicar.</p>
+
+    <form id="demo-form">
+      <label for="nome">Seu Nome *</label>
+      <input type="text" id="nome" name="nome" required>
+
+      <label for="email">Seu melhor e-mail *</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="celular">Celular (WhatsApp) *</label>
+      <input type="tel" id="celular" name="celular" required>
+
+      <button type="submit">Enviar</button>
+    </form>
+
+    <div class="notes">
+      <strong>Cenários para testar:</strong><br>
+      • E-mail: digite <code>joao@gmial.com</code> — deve sugerir correção<br>
+      • Celular: digite apenas 10 dígitos — deve bloquear<br>
+      • Celular: digite com DDD inválido (00) — deve bloquear<br>
+      • Enviar vazio: deve bloquear com "Campo obrigatório"
+    </div>
+
+    <p class="footer">
+      RD Station Form Validator v1.0.0 ·
+      <a href="https://github.com/SEU-USUARIO/rd-station-form-validator" style="color:#fde047">GitHub</a>
+    </p>
+  </div>
+
+  <!-- CSS do validator -->
+  <link rel="stylesheet" href="../src/rd-form-validator.css">
+
+  <!-- Script do validator -->
+  <script src="../src/rd-form-validator.js"></script>
+
+  <!-- Intercepta submit real pra não recarregar a página durante testes -->
+  <script>
+    document.getElementById('demo-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      alert('✅ Formulário validado com sucesso! (em produção, o RD Station processaria o envio aqui)');
+    });
+  </script>
+</body>
+</html>
