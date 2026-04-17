@@ -1,0 +1,86 @@
+/*!
+ * RD Station Form Validator — Styles
+ * @version 1.0.0
+ * @license MIT
+ */
+
+/* ==========================================================================
+   Oculta seletor de país do intl-tel-input e variantes do RD Station
+   ========================================================================== */
+.iti__flag-container,
+.iti__country-list,
+.iti-flag,
+.bricks--component-phone-dropdown,
+.bricks--component-phone-flag,
+[class*="phone-flag"],
+[class*="phone-country"],
+[class*="flag-dropdown"],
+[class*="country-selector"] {
+  display: none !important;
+}
+
+/* Reseta wrapper .iti e reaplica padding padrão no input de tel */
+.iti {
+  width: 100% !important;
+}
+
+.iti input[type="tel"],
+input[type="tel"] {
+  padding-left: 12px !important;
+  padding-right: 12px !important;
+  width: 100% !important;
+}
+
+/* Oculta mensagens de validação nativas do RD para evitar duplicação */
+[class*="bricks--component-validation-message"] {
+  display: none !important;
+}
+
+/* ==========================================================================
+   Estados de validação
+   ========================================================================== */
+.rd-valid {
+  border-color: #22c55e !important;
+  box-shadow: 0 0 0 2px rgba(34, 197, 94, 0.15) !important;
+}
+
+.rd-invalid {
+  border-color: #ef4444 !important;
+  box-shadow: 0 0 0 2px rgba(239, 68, 68, 0.15) !important;
+}
+
+/* ==========================================================================
+   Mensagens
+   ========================================================================== */
+.rd-msg-error {
+  color: #ef4444;
+  font-size: 14px;
+  margin-top: 6px;
+  display: block;
+  line-height: 1.35;
+}
+
+.rd-msg-suggest {
+  color: #2563eb;
+  font-size: 14px;
+  margin-top: 6px;
+  display: block;
+  cursor: pointer;
+  line-height: 1.35;
+  padding: 4px 0;
+}
+
+.rd-msg-suggest u {
+  font-weight: 600;
+}
+
+/* ==========================================================================
+   Ajustes mobile
+   ========================================================================== */
+@media (max-width: 640px) {
+  .rd-msg-error,
+  .rd-msg-suggest {
+    font-size: 15px;
+    padding: 6px 0;
+  }
+}
